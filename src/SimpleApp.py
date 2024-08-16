@@ -10,5 +10,7 @@ if value_1 not in hex_Dict or value_2 not in hex_Dict:
 else:
     if value_1 == "1" or value_2 == "1":
         print(f"Resultado: {max(value_1,value_2)}")
+    elif value_1 == "0" or value_2 == "0":
+        print(f"Resultado: 0")        
     else:
         print(f"Resultado: {hex_Dict.get(value_1, {}).get(value_2, None)[0]}")
