@@ -1,48 +1,48 @@
-def HexToInt(char):
-    if "0" <= char <= "9":
-        return ( ord(char) - ord("0") )
-    elif "A" <= char <= "F":
-        return ( ord(char) - ord("A") + 10 )
+def HexToInt(hex): 
+    if "0" <= hex <= "9":
+        return (ord(hex) - ord("0"))
+    elif "A" <= hex <= "F":
+        return ((ord(hex) - ord("A")) + (ord("K") - ord("A")))
     else:
-        raise ValueError("Valores Inválidos")
-    
-def IntToHex(num):
-    if 0 <= num <= 9:
-        return chr( ord("0") + num )
-    else:
-        return chr( ord("A") + num - 10)
+        raise ValueError("Valor Inválido")
 
-def MultiplyHex(value1,value2):
+def IntToHex(num):
+    if (ord("0")-ord("0")) <= num <= (ord("9")-ord("0")):
+        return chr(ord("0") + num)
+    else:
+        return chr((ord("A") + num) - (ord("K") - ord("A")))
+
+def MultHex(value1,value2):
     value1 = value1.upper()
     value2 = value2.upper()
+
+    if not (value1 and value2) or not all(c in "0123456789ABCDEF" for c in value1+value2):
+        raise ValueError("Valor Inválido")
     
-    if not (value1 and value2) or not all( char in "0123456789ABCDEF" for char in value1+value2 ):
-        raise ValueError("Valores Inválidos")
-    
-    result = [0] * (len(value1) + len(value2))
+    result = [(ord("0")-ord("0"))] * (len(value1)+len(value2))
 
     for i,char1 in enumerate(reversed(value1)):
         for j,char2 in enumerate(reversed(value2)):
-            int1 = HexToInt(char1)
-            int2 = HexToInt(char2)
-    
+            int1= HexToInt(char1)
+            int2= HexToInt(char2)
+
             product = int1 * int2
             position = i + j
 
             result[position] += product
 
-            result[position + 1] += result[position] // 16
-            result[position] %= 16
+            result[position + (ord("1")-ord("0"))] += result[position] // (ord("Q") - ord("A"))
 
-    result = ''.join(IntToHex(x) for x in reversed(result))
+            result[position] %= (ord("Q") - ord("A"))
+
+    result = ''.join(IntToHex(x) for x in reversed(result)).lstrip('0')
     return result
 
-a = str(input("Primeiro valor: ")).upper()
-b = str(input("Segundo valor: ")).upper()
+a = str(input("Valor 1: ")).upper()
+b = str(input("Valor 2: ")).upper()
 
-try: 
-    ab = MultiplyHex(a,b)
-    print(f"Multiplicando {a} e {b} temos: '{ab}' ")
-
+try:
+    ab = MultHex(a,b)
+    print(f"A multiplicação entre {a} e {b} é: {ab}")
 except ValueError as error:
     print(error)

@@ -3,8 +3,8 @@
         "**/*.pyc": {"when": "$(basename).py"},
         "**/__pycache__": true,
         "**/*.pytest_cache": true,
-        "**/src/data": true,
-        "**table.png": true,
-        "**/src/SimpleApp.py": true,
+        // "**/src/data": true,
+        // "**table.png": true,
+        // "**/src/SimpleApp.py": true,
     }
 }
