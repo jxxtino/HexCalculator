@@ -7,7 +7,7 @@ def HexToInt(hex):
         raise ValueError("Valor Inválido")
 
 def IntToHex(num):
-    if (ord("0")-ord("0")) <= num <= (ord("9")-ord("0")):
+    if (ord("0") - ord("0")) <= num <= (ord("9") - ord("0")):
         return chr(ord("0") + num)
     else:
         return chr((ord("A") + num) - (ord("K") - ord("A")))
@@ -19,7 +19,7 @@ def MultHex(value1,value2):
     if not (value1 and value2) or not all(c in "0123456789ABCDEF" for c in value1+value2):
         raise ValueError("Valor Inválido")
     
-    result = [(ord("0")-ord("0"))] * (len(value1)+len(value2))
+    result = [(ord("0") - ord("0"))] * (len(value1)+len(value2))
 
     for i,char1 in enumerate(reversed(value1)):
         for j,char2 in enumerate(reversed(value2)):
@@ -31,7 +31,7 @@ def MultHex(value1,value2):
 
             result[position] += product
 
-            result[position + (ord("1")-ord("0"))] += result[position] // (ord("Q") - ord("A"))
+            result[position + (ord("1") - ord("0"))] += result[position] // (ord("Q") - ord("A"))
 
             result[position] %= (ord("Q") - ord("A"))
 
@@ -44,5 +44,6 @@ b = str(input("Valor 2: ")).upper()
 try:
     ab = MultHex(a,b)
     print(f"A multiplicação entre {a} e {b} é: {ab}")
+
 except ValueError as error:
     print(error)
