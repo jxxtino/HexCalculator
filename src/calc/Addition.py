@@ -1,19 +1,6 @@
+from .Controllers.Controller import Controllers_
+
 class Addition():
-
-    def HexToInt(self,hex): 
-        if "0" <= hex <= "9":
-            return (ord(hex) - ord("0"))
-        elif "A" <= hex <= "F":
-            return ((ord(hex) - ord("A")) + (ord("K") - ord("A")))
-        else:
-            raise ValueError("Valor Inválido")
-
-    def IntToHex(self,num):
-        if (ord("0") - ord("0")) <= num <= (ord("9") - ord("0")):
-            return chr(ord("0") + num)
-        else:
-            return chr((ord("A") + num) - (ord("K") - ord("A")))
-
     def SumHex(self,value1,value2):
         value1 = value1.upper()
         value2 = value2.upper()
@@ -36,8 +23,8 @@ class Addition():
         result = [0] * (len(Values[0]) + 1)
 
         for i,(x,y) in enumerate(reversed(list(zip(value1,value2)))):
-            x = self.HexToInt(x)
-            y = self.HexToInt(y)
+            x = Controllers_.HexToInt(x)
+            y = Controllers_.HexToInt(y)
 
             sum = x + y
             counter = 0
@@ -51,7 +38,7 @@ class Addition():
             if (i + 1) < len(result):
                 result[(i+1)] += counter
 
-        result = ''.join(self.IntToHex(x) for x in reversed(result)).lstrip("0")
+        result = ''.join(Controllers_.IntToHex(x) for x in reversed(result)).lstrip("0")
         return result
     
 Addition_ = Addition()

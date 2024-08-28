@@ -1,18 +1,6 @@
+from .Controllers.Controller import Controllers_
+
 class Multiplication():
-
-    def HexToInt(self,hex): 
-        if "0" <= hex <= "9":
-            return (ord(hex) - ord("0"))
-        elif "A" <= hex <= "F":
-            return ((ord(hex) - ord("A")) + (ord("K") - ord("A")))
-        else:
-            raise ValueError("Valor Inválido")
-
-    def IntToHex(self,num):
-        if (ord("0") - ord("0")) <= num <= (ord("9") - ord("0")):
-            return chr(ord("0") + num)
-        else:
-            return chr((ord("A") + num) - (ord("K") - ord("A")))
 
     def MultHex(self,value1,value2):
         value1 = value1.upper()
@@ -25,8 +13,8 @@ class Multiplication():
 
         for i,char1 in enumerate(reversed(value1)):
             for j,char2 in enumerate(reversed(value2)):
-                int1= self.HexToInt(char1)
-                int2= self.HexToInt(char2)
+                int1= Controllers_.HexToInt(char1)
+                int2= Controllers_.HexToInt(char2)
 
                 product = int1 * int2
                 position = i + j
@@ -37,7 +25,7 @@ class Multiplication():
 
                 result[position] %= (ord("Q") - ord("A"))
 
-        result = ''.join(self.IntToHex(x) for x in reversed(result)).lstrip('0')
+        result = ''.join(Controllers_.IntToHex(x) for x in reversed(result)).lstrip('0')
         return result
     
 Multiplication_ = Multiplication()
