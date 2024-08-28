@@ -54,3 +54,4 @@ class Addition():
         result = ''.join(self.IntToHex(x) for x in reversed(result)).lstrip("0")
         return result
     
+Addition_ = Addition()

@@ -8,7 +8,6 @@ class Multiplication():
         else:
             raise ValueError("Valor Inválido")
 
-
     def IntToHex(self,num):
         if (ord("0") - ord("0")) <= num <= (ord("9") - ord("0")):
             return chr(ord("0") + num)
@@ -41,3 +40,4 @@ class Multiplication():
         result = ''.join(self.IntToHex(x) for x in reversed(result)).lstrip('0')
         return result
     
+Multiplication_ = Multiplication()
