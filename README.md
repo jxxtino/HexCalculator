@@ -1,8 +1,8 @@
-# Desafio Math
+# Calculadora Hexadecimal (Desafio Math)
 
 Realizar operações aritméticas com valores hexadecimais sem convertê-los para inteiros
 
-## Multiplicação
+## Lógicas Trabalhadas
 
 - Hex -> Unicode
 - Int -> Hex
